@@ -91,6 +91,8 @@ const stories = [
   }
 ];
 
+stories.push(...(window.SIGNAL_SHELF_BACKFILL || []));
+
 const trackedAccounts = [
   { category: "ai", name: "3Blue1Brown" }, { category: "ai", name: "Dwarkesh Patel" },
   { category: "ai", name: "Andrej Karpathy" }, { category: "ai", name: "Lex Fridman" },
@@ -107,7 +109,7 @@ const catalog = window.SIGNAL_SHELF_CATALOG || { stats: {}, videos: [] };
 const grid = document.querySelector("#feedGrid"), empty = document.querySelector("#emptyState"), channelFilter = document.querySelector("#channelFilter"), dateFilter = document.querySelector("#dateFilter"), archiveDates = document.querySelector("#archiveDates"), sourceDateFilter = document.querySelector("#sourceDateFilter"), sourceGrid = document.querySelector("#sourceGrid"), sourceStats = document.querySelector("#sourceStats"), dialog = document.querySelector("#reader"), readerContent = document.querySelector("#readerContent"), savedCount = document.querySelector("#savedCount"), toast = document.querySelector("#toast");
 let activeFilter = "all", savedOnly = false, saved = new Set(JSON.parse(localStorage.getItem("signal-shelf-saved") || "[]"));
 let narrationStoryId = null, narrationAudio = null, narrationStatus = "Natural female narration · 1×";
-const narrationSeconds = { 1: 250, 2: 176, 3: 200, 4: 180, 5: 172, 6: 167 };
+const narrationSeconds = { 1: 250, 2: 176, 3: 200, 4: 180, 5: 172, 6: 167, 7: 214, 8: 200, 9: 186, 10: 183, 11: 212, 12: 196, 13: 168, 14: 182, 15: 192, 16: 177, 17: 183, 18: 182, 19: 180, 20: 190, 21: 183, 22: 188, 23: 183, 24: 182, 25: 191, 26: 196 };
 
 function readingMinutes(s) { const text=[s.title,s.lede,...s.sections.flat(),...s.takeaways].join(" ");const words=text.match(/[A-Za-z0-9]+(?:['’-][A-Za-z0-9]+)*/g)||[];return Math.max(1,Math.ceil(words.length/200)); }
 function audioTime(seconds) { const rounded=Math.round(seconds||0),minutes=Math.floor(rounded/60),remainder=String(rounded%60).padStart(2,"0");return `${minutes}:${remainder}`; }
