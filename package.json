@@ -1,1 +1,13 @@
-m«ëˆ§½©buªàºg§¶–œ‘¨Ê'RÆ y¶¬{®vçºh¢ø¥zŠ.µø¥y¶ëy©­æ¤zw(uçhºÚn¶êbÚ%Šw¬¡ù^aéƒu×œ¡×yÊz)éºØazZ]ŠÊek+aŠÉ²Æ z(§¦ëb›­~)^uçÚº[_¢»-v)è¢ëiºÚ.¶›­~)^uçÚº[_¢»-v‹­
+{
+  "name": "signal-shelf",
+  "private": true,
+  "scripts": {
+    "generate:narration": "node scripts/generate-narration.mjs"
+  },
+  "dependencies": {
+    "kokoro-js": "1.2.1"
+  },
+  "devDependencies": {
+    "ffmpeg-static": "^5.2.0"
+  }
+}
