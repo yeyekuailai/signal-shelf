@@ -2,9 +2,13 @@
   "name": "signal-shelf",
   "private": true,
   "scripts": {
-    "vendor:tts": "mkdir -p dist/vendor && cp node_modules/kokoro-js/dist/kokoro.web.js dist/vendor/kokoro.web.js && cp node_modules/kokoro-js/LICENSE dist/vendor/kokoro-LICENSE.txt"
+    "vendor:tts": "mkdir -p dist/vendor && cp node_modules/kokoro-js/dist/kokoro.web.js dist/vendor/kokoro.web.js && cp node_modules/kokoro-js/LICENSE dist/vendor/kokoro-LICENSE.txt",
+    "generate:narration": "node scripts/generate-narration.mjs"
   },
   "dependencies": {
     "kokoro-js": "1.2.1"
+  },
+  "devDependencies": {
+    "ffmpeg-static": "^5.2.0"
   }
 }
