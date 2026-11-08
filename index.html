@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Track leading AI, investment banking, and supply chain channels. Read the signal without watching every minute." />
+  <meta name="theme-color" content="#f2f5f7" />
+  <title>Signal Shelf · Long videos, short reads</title>
+  <link rel="icon" type="image/png" href="./favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div class="progress" aria-hidden="true"><span id="scrollProgress"></span></div>
+  <header class="topbar">
+    <a class="brand" href="#top" aria-label="Signal Shelf home">
+      <img class="brand-logo" src="./signal-shelf-logo.png" alt="" />
+      <span>Signal Shelf</span>
+    </a>
+    <nav aria-label="Main navigation">
+      <a href="#feed">Daily cut</a>
+      <a href="#archive">Archive</a>
+      <a href="#channels">Sources</a>
+      <button class="saved-link" id="savedOnly" type="button">Read later <span id="savedCount">0</span></button>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="heroTitle">
+      <div class="hero-copy">
+        <p class="kicker">LONG VIDEOS → SHORT READS</p>
+        <h1 id="heroTitle">Watch less.<br /><span>Know more.</span></h1>
+        <p class="hero-intro">We track high-reach U.S. creators and editorial channels, then turn full transcripts into substantial English briefings: argument, evidence, caveats, and timestamped source links.</p>
+        <div class="hero-actions">
+          <a class="primary" href="#feed">Start today's cut <span>↓</span></a>
+          <span class="update-note"><i></i> Transcript-grounded · No demo summaries</span>
+        </div>
+      </div>
+      <div class="signal-panel" aria-label="Today's signal overview">
+        <div class="signal-head"><span>TODAY'S SIGNAL</span><time>07 NOV 2026</time></div>
+        <div class="signal-line ai"><span>AI &amp; Tech</span><b>02</b><i style="--level: 86%"></i></div>
+        <div class="signal-line finance"><span>Investment Banking</span><b>02</b><i style="--level: 61%"></i></div>
+        <div class="signal-line supply"><span>Supply Chain</span><b>02</b><i style="--level: 45%"></i></div>
+        <div class="signal-foot">
+          <strong>06</strong>
+          <span>deep briefings<br />2.3 hours condensed</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="feed-section" id="feed" aria-labelledby="feedTitle">
+      <div class="section-head">
+        <div>
+          <p class="kicker">THE DAILY CUT</p>
+          <h2 id="feedTitle">Worth your attention</h2>
+        </div>
+        <div class="search-cluster">
+          <div class="search-wrap">
+            <label for="channelFilter">Filter by channel</label>
+            <select id="channelFilter" aria-label="Filter by channel"></select>
+          </div>
+          <div class="date-wrap">
+            <label for="dateFilter">Daily Cut edition</label>
+            <div><select id="dateFilter" aria-label="Choose a Daily Cut edition"></select></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="filters" role="group" aria-label="Filter by beat">
+        <button class="filter active" data-filter="all" type="button">All <span>6</span></button>
+        <button class="filter" data-filter="ai" type="button">AI &amp; Tech <span>2</span></button>
+        <button class="filter" data-filter="finance" type="button">Investment Banking <span>2</span></button>
+        <button class="filter" data-filter="supply" type="button">Supply Chain <span>2</span></button>
+      </div>
+
+      <div class="feed-grid" id="feedGrid" aria-live="polite"></div>
+      <div class="empty" id="emptyState" hidden>
+        <strong>No briefings found</strong>
+        <span>This tracked channel has no briefing in the selected Daily Cut.</span>
+      </div>
+    </section>
+
+    <section class="archive-section" id="archive" aria-labelledby="archiveTitle">
+      <div class="section-head compact">
+        <div><p class="kicker">PAST EDITIONS</p><h2 id="archiveTitle">Open an earlier cut</h2></div>
+        <p>Edition dates, not original video upload dates</p>
+      </div>
+      <div class="archive-dates" id="archiveDates"></div>
+      <div class="source-archive">
+        <div class="source-archive-head">
+          <div><p class="kicker">DAILY SOURCE DATABASE</p><h3>Every tracked upload since Jan 1, 2026</h3></div>
+          <div class="date-wrap"><label for="sourceDateFilter">Source upload date</label><select id="sourceDateFilter"></select></div>
+        </div>
+        <p class="source-note" id="sourceStats">Loading verified channel metadata…</p>
+        <div class="source-grid" id="sourceGrid"></div>
+      </div>
+    </section>
+
+    <section class="channels-section" id="channels" aria-labelledby="channelsTitle">
+      <div class="section-head compact">
+        <div>
+          <p class="kicker">SOURCE MAP</p>
+          <h2 id="channelsTitle">Vetted source pool</h2>
+        </div>
+        <p>18 tracked U.S. creators and editorial institutions · 3 beats</p>
+      </div>
+      <div class="channel-ticker" aria-label="Channel list">
+        <div class="ticker-track">
+          <span>3Blue1Brown</span><span>Dwarkesh Patel</span><span>Cleo Abram</span><span>Andrej Karpathy</span><span>Lex Fridman</span><span>Matthew Berman</span><span>Wes Roth</span><span>Aswath Damodaran</span><span>Wall Street Millennial</span><span>Modern MBA</span><span>Company Man</span><span>Bloomberg Originals</span><span>Business Insider</span><span>CNBC Make It</span><span>CNBC</span><span>WSJ</span><span>Wendover Productions</span><span>Half as Interesting</span>
+          <span aria-hidden="true">3Blue1Brown</span><span aria-hidden="true">Dwarkesh Patel</span><span aria-hidden="true">Cleo Abram</span><span aria-hidden="true">Andrej Karpathy</span><span aria-hidden="true">Lex Fridman</span><span aria-hidden="true">Matthew Berman</span><span aria-hidden="true">Wes Roth</span><span aria-hidden="true">Aswath Damodaran</span><span aria-hidden="true">Wall Street Millennial</span><span aria-hidden="true">Modern MBA</span><span aria-hidden="true">Company Man</span><span aria-hidden="true">Bloomberg Originals</span><span aria-hidden="true">Business Insider</span><span aria-hidden="true">CNBC Make It</span><span aria-hidden="true">CNBC</span><span aria-hidden="true">WSJ</span><span aria-hidden="true">Wendover Productions</span><span aria-hidden="true">Half as Interesting</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div><img class="brand-logo footer-logo" src="./signal-shelf-logo.png" alt="" /><strong>Signal Shelf</strong></div>
+    <p>Long videos, turned into ideas you can finish.</p>
+    <span>Source-derived editorial summaries · Video rights belong to creators</span>
+  </footer>
+
+  <dialog id="reader" aria-labelledby="readerTitle">
+    <button class="dialog-close" id="closeReader" type="button" aria-label="Close briefing">×</button>
+    <div id="readerContent"></div>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="./catalog-data.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>
