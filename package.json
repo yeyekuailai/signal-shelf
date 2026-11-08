@@ -1,0 +1,10 @@
+{
+  "name": "signal-shelf",
+  "private": true,
+  "scripts": {
+    "vendor:tts": "mkdir -p dist/vendor && cp node_modules/kokoro-js/dist/kokoro.web.js dist/vendor/kokoro.web.js && cp node_modules/kokoro-js/LICENSE dist/vendor/kokoro-LICENSE.txt"
+  },
+  "dependencies": {
+    "kokoro-js": "1.2.1"
+  }
+}
